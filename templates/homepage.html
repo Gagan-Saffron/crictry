@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>CricTry</title>
+
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'homepage.css' %}">
+</head>
+<body>
+	
+
+	<div class="matches_container">
+
+		<div class="today_matches">
+			<h1>Matches today:</h1>
+			<ol>
+				{% for match in matches %}
+					<li> <a href="/scores/{{match.unique_id}}"> {{ match.team1 }} vs {{ match.team2 }} </a> </li>
+				{% endfor %}
+			</ol>
+		</div>
+
+		<div class="all_matches">
+			<h1>All scheduled matches:</h1>
+			<ol>
+				{% for match in all_matches %}
+					<li>{{ match.team1 }} vs {{ match.team2 }} </li>
+					<hr>
+				{% endfor %}
+			</ol>
+		</div>
+
+	</div>
+
+</body>
+</html>
